@@ -1,0 +1,17 @@
+
+
+// 每次构建 CLI 自动生成，切勿修改（修改后，构建时也将重写此文件）。
+
+import TripPage from './like_peoples.vue';
+
+$(function(){
+	//引入公共组件
+	//Vue.component('crm-nav', 	require('../../components/nav/nav.vue'));
+	new Vue({
+		el: '#js_container',
+		components: {
+			TripPage
+		}
+	})
+})
+
