@@ -2,12 +2,11 @@
 <style lang="less">
 </style>
 <template>
-    <pic-list></pic-list>
-    <pic-upload></pic-upload>
+  <div>
+    this is home page
+  </div>
 </template>
 <script>
-import PicList from './views/list.vue';
-import PicUpload from '../components/upload'
 
 export default Vue.extend({
     ready(){
@@ -18,16 +17,11 @@ export default Vue.extend({
     },
 
     methods:{
-        changeTab(){
-
-        }
     },
 
     computed:{},
 
     components:{
-        PicList,
-        PicUpload
     },
 
     filters:{},

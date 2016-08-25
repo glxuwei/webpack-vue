@@ -1,7 +1,6 @@
 
 <template>
-  <post-header :curview.sync="curView" :selected-locid="selectedlocation.id"></post-header>
-  <component :is="curView" :curview.sync="curView" :current-loc="currentlocation" :selected-loc.sync="selectedlocation" keep-alive transition="fade" transition-mode="out-in"></component>
+  this is the post page
 </template>
 
 <style lang="less">
@@ -14,9 +13,6 @@
 </style>
 
 <script>
-import PostHeader from './components/header'
-import PostEditor from './components/editor'
-import AddrSel from './components/addrsel'
 import COMINFO from './constant'
 import promisePos from './position'
 let info = {
@@ -33,7 +29,6 @@ promisePos.then((data) => {
   info.currentlocation = {id: 0, name: ''};
   info.selectedlocation = {id: 0, name: '请选择目的地'};
 });
-console.log('aaaaaaa')
 //模拟请求数据
 setTimeout(() => {
   info.currentlocation = info.selectedlocation = {id: 1, name: '北京市东城区'};
@@ -61,9 +56,6 @@ export default Vue.extend({
     }
   },
 	components:{
-    PostHeader,
-    PostEditor,
-    AddrSel
   }
 });
 
