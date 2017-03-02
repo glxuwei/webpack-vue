@@ -7,3 +7,6 @@ module.exports.piclist = '图片社区-图片列表';
 module.exports.test = "测试标题"
 module.exports.test = "ldldldldldldl"
 module.exports.test1 = "test1"
+module.exports.passenger = "passenger"
+module.exports.passenger = ""
+module.exports.passenger = "abc"

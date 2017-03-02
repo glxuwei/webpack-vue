@@ -96,7 +96,8 @@ var funs = {
 				var entryName       = entryPath.substr(entryPath.lastIndexOf('/')+1);
 				entryName           = entryName.substring(0,entryName.indexOf('.'));
 				var entryFileConten = ENTER_TEMPLATE
-					.replace(/{name}/gi,entryName)
+					.replace(/{name}/g,entryName)
+          .replace(/{Name}/g, entryName.replace(/^(\w)(\w+)$/, (str, fir, sec) => fir.toUpperCase() + sec))
 					.replace(/{parents}/gi,parents);
 				var vueFileConten   = VUE_TEMPLATE
 					.replace(/{path}/gi,vuePath)
@@ -188,7 +189,10 @@ var funs = {
 			parents         = parents?'../'.repeat(parents):'./';
 			entryName       = entryPath.substr(entryPath.lastIndexOf('/')+1);
 			entryName       = entryName.substring(0,entryName.indexOf('.'));
-			entryFileConten = ENTER_TEMPLATE.replace(/{name}/gi,entryName).replace(/{parents}/gi,parents);
+			entryFileConten = ENTER_TEMPLATE
+        .replace(/{name}/g,entryName)
+        .replace(/{Name}/g, entryName.replace(/^(\w)(\w+)$/, (str, fir, sec) => fir.toUpperCase() + sec))
+        .replace(/{parents}/gi,parents);
 			fs.writeFileSync(entryPath,entryFileConten);
 		});
 		log('重建完成 ！ ')
