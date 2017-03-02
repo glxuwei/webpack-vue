@@ -9,7 +9,7 @@
     "start": "node ./cli/start.js",
     "pub": "node ./build/publish.js"
   },
-  "author": "",
+  "author": "xuwei0126 <xuwei_fewd@163.com>",
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.9.1",
@@ -69,5 +69,6 @@
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.12.2",
     "webpack-merge": "^0.14.1"
-  }
+  },
+  "repository": "https://github.com/glxuwei/webpack-vue.git"
 }
