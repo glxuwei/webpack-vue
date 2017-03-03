@@ -7,11 +7,13 @@
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "start": "node ./cli/start.js",
-    "pub": "node ./build/publish.js"
+    "pub": "node ./build/publish.js",
+    "ykit": "babel-node ./build/ykit.js"
   },
   "author": "xuwei0126 <xuwei_fewd@163.com>",
   "license": "ISC",
   "dependencies": {
+    "@qnpm/ykit-config-qunar": "^0.3.14",
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-runtime": "^6.9.0",
@@ -70,5 +72,10 @@
     "webpack-hot-middleware": "^2.12.2",
     "webpack-merge": "^0.14.1"
   },
-  "repository": "https://github.com/glxuwei/webpack-vue.git"
+  "repository": "https://github.com/glxuwei/webpack-vue.git",
+  "config": {
+    "ghooks": {
+      "pre-commit": "node node_modules/@qnpm/ykit-config-qunar/shrinkwrap/checker.js"
+    }
+  }
 }

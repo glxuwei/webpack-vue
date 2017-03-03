@@ -4,3 +4,11 @@
     <input type="text" name="username" id="qv_username"/>
   </div>
 </template>
+<script>
+  export default {
+    data() {
+      return {
+      }
+    }
+  }
+</script>

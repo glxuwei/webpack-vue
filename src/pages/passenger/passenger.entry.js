@@ -28,7 +28,7 @@ window.QV = ((qv, undefined) => {
     return new Vue({
       el,
       data,
-      template: '<div><passenger :name="name"></passenger></div>',
+      template: '<div><passenger :list="list"></passenger></div>',
       components: {
         Passenger
       }
@@ -37,15 +37,5 @@ window.QV = ((qv, undefined) => {
   }
   return qv;
 })(window.QV || {})
-
-const vm = QV.createPassenger({
-  el: '#js_container',
-  data: {
-    name: 'zs'
-  }
-});
-
-
-
 
 

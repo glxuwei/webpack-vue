@@ -1,6 +1,14 @@
 <template>
   <div>
-    <span>证件类型</span>
-    <span>身份证</span>
+    <label for="qv_username">姓名</label>
+    <input type="text" name="username" id="qv_username"/>
   </div>
 </template>
+<script>
+  export default {
+    data() {
+      return {
+      }
+    }
+  }
+</script>
