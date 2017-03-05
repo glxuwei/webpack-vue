@@ -1,8 +1,8 @@
 <template>
-  <header>
-    <a @click="back">{{cancel.text}}</a>
-    <a @click="confirmHandler">{{confirm.text}}</a>
-    <h3>{{title}}</h3>
+  <header class="header">
+    <a @click="back" class="back">{{cancel.text}}</a>
+    <a @click="confirmHandler" class="confirm">{{confirm.text}}</a>
+    <h3 class="title">{{title}}</h3>
   </header>
 </template>
 <script>

@@ -1,4 +1,5 @@
 var path = require('path')
+const fs = require('fs');
 var express = require('express')
 var webpack = require('webpack')
 var config = require('../config')
@@ -7,6 +8,7 @@ var webpackConfig = process.env.NODE_ENV === 'testing'
   ? require('./webpack.prod.conf')
   : require('./webpack.dev.conf')
 
+
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // Define HTTP proxies to your custom API backend
@@ -14,6 +16,12 @@ var port = process.env.PORT || config.dev.port
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+
+const mockDir = path.resolve(__dirname, '../', 'mock');
+fs.readdirSync(mockDir).forEach(file => {
+  const mock = require(path.resolve(mockDir, file));
+  app.use(mock.api, mock.response);
+})
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {

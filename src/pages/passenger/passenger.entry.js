@@ -1,34 +1,40 @@
-
-
-// 每次构建 CLI 自动生成，切勿修改（修改后，构建时也将重写此文件）。
-
 import Passenger from './passenger.vue';
 
 window.QV = ((qv, undefined) => {
 
-  qv.createPassenger = ({el = '', data} = {}) => {
-
+  qv.createPassenger = (options = {}) => {
+    const el = options.el;
     const appendCustomElement = el => {
+      let ext = '';
+      let sliceIndex = 1;
       const propertiesMapping = {
         '#': 'id',
         '.': 'className',
       }
-      const elementProperty = propertiesMapping(el[0]) || 'id';
+      let elementProperty = propertiesMapping(el[0]);
+      if (!elementProperty) {
+        elementProperty = 'id';
+        ext = '#';
+        sliceIndex = 0;
+      }
       const customElement = document.createElement('div');
-      customElement[elementProperty] = el.slice(1);
+      customElement[elementProperty] = el.slice(sliceIndex);
       document.body.appendChild(customElement);
+      return ext + el;
     }
     if (!(document.querySelector(el) instanceof HTMLElement)) {
       if (typeof el === 'string') {
-        appendCustomElement(el);
+        options.el = appendCustomElement(el);
       } else {
         throw new Error('createPassenger的参数el必须为字符串');
       }
     }
     return new Vue({
-      el,
-      data,
-      template: '<div><passenger :list="list"></passenger></div>',
+      el: options.el,
+      data: {
+        options: options.data
+      },
+      template: '<div class="qv-component"><passenger :options="options"></passenger></div>',
       components: {
         Passenger
       }
@@ -37,5 +43,54 @@ window.QV = ((qv, undefined) => {
   }
   return qv;
 })(window.QV || {})
+
+
+const list = [
+      {
+        name: 'zs',
+        type: '成人',
+        idtype: '其他',
+        idno: '39383939'
+      },
+      {
+        name: 'ls',
+        type: '成人',
+        idtype: '身份证',
+        idno: '39383939'
+      },
+      {
+        name: 'ww',
+        type: '成人',
+        idtype: '其他',
+        idno: '39383939'
+      },
+      {
+        name: 'zl',
+        type: '成人',
+        idtype: '其他',
+        idno: '39383939'
+      },
+      {
+        name: 'ab',
+        type: '成人',
+        idtype: '其他',
+        idno: '39383939'
+      },
+    ]
+
+const vm = QV.createPassenger({
+  el: '#js_container',
+  data: {
+    getPassengers: {
+      type: 'get',
+      url: '/aa',
+      body: {
+      }
+    }
+  }
+
+});
+
+
 
 
