@@ -44,40 +44,6 @@ window.QV = ((qv, undefined) => {
   return qv;
 })(window.QV || {})
 
-
-const list = [
-      {
-        name: 'zs',
-        type: '成人',
-        idtype: '其他',
-        idno: '39383939'
-      },
-      {
-        name: 'ls',
-        type: '成人',
-        idtype: '身份证',
-        idno: '39383939'
-      },
-      {
-        name: 'ww',
-        type: '成人',
-        idtype: '其他',
-        idno: '39383939'
-      },
-      {
-        name: 'zl',
-        type: '成人',
-        idtype: '其他',
-        idno: '39383939'
-      },
-      {
-        name: 'ab',
-        type: '成人',
-        idtype: '其他',
-        idno: '39383939'
-      },
-    ]
-
 const vm = QV.createPassenger({
   el: '#js_container',
   data: {
@@ -88,7 +54,6 @@ const vm = QV.createPassenger({
       }
     }
   }
-
 });
 
 
